@@ -28,6 +28,9 @@
 		if(isset($_GET["page"])){
 			$page_num = $_GET["page"]; //유저 접속시 기본 페이지 셋팅
 		}
+		// 삼항 연산자로 get method 확인
+		// $page_num  =isset($_GET["page"]) ? $_GET["page"] : 1;
+
 		$offset = ($page_num -1) * $list_cnt; //1페이지마다 보이는 페이지 계산
 
 		// 이전 버튼
@@ -96,7 +99,6 @@
 		foreach($result as $item){	
 		?>
 			<tr>
-			
 				<td><?php echo $item["id"]; ?></td>
 				<td>
 					<a href="/mini_board/src/detail.php/?id=<?php echo $item["id"];?>&page=<?php echo $page_num;?>">

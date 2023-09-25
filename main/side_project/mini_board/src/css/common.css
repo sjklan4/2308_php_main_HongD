@@ -38,11 +38,11 @@ main > a:hover {
 	text-align: center;				
 }
 .btn_wrap > a{
-	background-color: #8d8d8d;
+	background-color:#8d8d8d;
 	color: #ffffff;
 	min-width: 30%;
 	border-radius: 2px;
-	 padding: 5px;
+	padding: 5px;
 	margin: 5px; 
 	display: inline-block;
 	width: 1000px;
@@ -113,19 +113,18 @@ input {
 }
 input:focus{
 	background-color: #757575;
-	color: rgb(255, 255, 255);
+	color: fff;
 }
 textarea {
 	resize: none;
 	width: 800px;
 	height: 500px;
+	color: #646363;
 }
 textarea:focus{
-	background-color: #757575;
+	background-color: #d3d3d3;
 	
 }
-
-
 
 /* insert - 버튼영역 */
 .btn_gray{

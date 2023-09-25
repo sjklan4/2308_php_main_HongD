@@ -66,4 +66,5 @@ if($result){
 	border='0'></a></div>";
 	// footer    
 	require_once('./footer.php');
+	
   ?>
