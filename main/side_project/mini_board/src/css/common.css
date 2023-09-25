@@ -1,0 +1,164 @@
+*{ box-sizing: border-box; }
+body{ margin: 0; padding: 0;background-size: cover; }
+a{ text-decoration: none; }
+a:hover{transform: all 0.5s;}
+/* 헤더영역 */
+header {
+	background-size: cover;
+	width: 100%;
+	padding: 2rem;
+}
+header > h1 {
+	text-align: center;
+	font-size: 4rem;
+}
+header > h1 > a{
+	color: #6a6464;
+}
+header > h1 > a:hover{
+	color: #8b8b8b;
+}
+/* 메인영역 */
+main > a {
+	font-size: 18px;
+	color:#6a6464;
+	line-height: 50px;
+	margin: 80px;
+}
+main > a:hover {
+	color:#737070;
+}
+
+/*  버튼 설정 */
+.btn_wrap{
+	font-size: 18px;
+	display: block;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;				
+}
+.btn_wrap > a{
+	background-color: #8d8d8d;
+	color: #ffffff;
+	min-width: 30%;
+	border-radius: 2px;
+	 padding: 5px;
+	margin: 5px; 
+	display: inline-block;
+	width: 1000px;
+}
+.btn_wrap > a:hover{
+	background-color: #d9d9d9;
+	color: #010101;
+
+}
+
+/* 테이블 */
+table {
+	border-collapse : collapse;
+	width : 1000px;
+	height: 500px;
+	margin: 80px  auto;
+	margin-top: 0;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+th,td{
+	border-bottom: 5px solid #d9d9d9;
+	text-align: center;
+	color:#737070;
+	
+}
+td > a {
+	color:#737070;
+}
+td > a:hover {
+ color: #393838;
+}
+.table-title{
+	border:none;
+	background-color: rgba(195, 198, 199,0.69);
+	color: #797373;
+}
+
+/* 섹션영역 */
+section {
+	text-align: center;
+}
+section a{
+	background-color: rgba(195, 198, 199,0.69);
+	border-radius: 10px;
+	color: #909090;
+	display: inline-block;
+	font-weight: bold;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-decoration: none;
+}
+section a:hover{
+	background-color: rgba(0, 0, 0, 0.5);
+	
+}
+
+/* insert 영역 */
+form {
+	text-align: center;
+	font-size: 20px;
+}
+input {
+	width: 800px;
+	height: 30px;	
+}
+input:focus{
+	background-color: #757575;
+	color: rgb(255, 255, 255);
+}
+textarea {
+	resize: none;
+	width: 800px;
+	height: 500px;
+}
+textarea:focus{
+	background-color: #757575;
+	
+}
+
+
+
+/* insert - 버튼영역 */
+.btn_gray{
+	border: none;
+    color: #757575;
+	font-size: 18px;
+}
+.btn_gray:hover {
+	color: #3a3939;
+}
+.btn_cancle {
+	padding: 2px;
+	background-color: #f0f0f0;
+	color: #757575;
+	font-size: 18px;
+}
+.btn_cancle:hover {
+	color: #3a3939;
+}
+label {
+	color: #757575;
+	background-color: #f0f0f0;
+}
+
+/* detail 영역 */
+.detail_a{
+	text-align: center;	
+}
+.detail_a > a{
+	color: #757575;
+	display: inline-block;
+	padding: 30px;		
+}
+.detail_a > a:hover{
+	color: #3a3939;
+}
