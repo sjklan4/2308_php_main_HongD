@@ -1,9 +1,10 @@
 *{margin: 0; padding: 0;}
-body{background-color: #e6f1f8; font-size: 24px;}
+body{font-size: 24px;}
 /* 헤더 */
-header {width: 100%;}
+header {width: 100%}
 header > h1{text-align: center; padding: 10px; margin: 50px;}
 /* 테이블 */
-table{width: 1000px; height: 300px; margin: 50px;}
+table{background-color:rgb(166, 236, 241); width: 90%; height: 45%; }
+tr,th,td {text-align: center;}
 /* 버튼 */
-button{border: none;padding: 30px;}
+button{background-color:black; color: #ffffff; margin: 10px; font-size: 15px;}
