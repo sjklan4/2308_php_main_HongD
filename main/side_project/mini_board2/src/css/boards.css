@@ -1,10 +1,13 @@
-*{margin: 0; padding: 0;}
-body{font-size: 24px;}
+*{margin: 0; padding: 0; font-family: 'Dela Gothic One', cursive;}
+body{font-size: 24px;  font-size: 20px; color: #ffffff;}
 /* 헤더 */
 header {width: 100%}
-header > h1{text-align: center; padding: 10px; margin: 50px;}
+header > h1{text-align: center; padding: 10px; margin: 50px; background:#5cbafd}
 /* 테이블 */
-table{background-color:rgb(166, 236, 241); width: 90%; height: 45%; }
-tr,th,td {text-align: center;}
+table{margin:40px; width: 90%; height: 45%;  border-collapse: separate;  border-spacing: 0;   overflow: hidden;}
+tr,th,td {text-align: center; padding: 30px;border: 1px solid #00000023;}
+table > thead {background-color: #5cbafd; }	
+tr > td { background-color: #d8e9f5; border-bottom: 1px solid rgba(0, 0, 0, 0.144);}
+
 /* 버튼 */
-button{background-color:black; color: #ffffff; margin: 10px; font-size: 15px;}
+button{background-color:#5cbafd;border-radius: 8px; width:100px; height:50px; border:none; color:#ffffff; margin: 45px; font-size: 18px;}
