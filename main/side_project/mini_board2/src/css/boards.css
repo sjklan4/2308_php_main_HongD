@@ -1,13 +1,58 @@
-*{margin: 0; padding: 0; font-family: 'Dela Gothic One', cursive;}
-body{font-size: 24px;  font-size: 20px; color: #ffffff;}
+*{margin: 0; padding: 0; font-family: 'Single Day', cursive;}
+body{font-size: 40px; color: #ffffff; }
+
 /* 헤더 */
-header {width: 100%}
-header > h1{text-align: center; padding: 10px; margin: 50px; background:#5cbafd}
+header {
+	width: 93%; 
+	margin:0 auto; 
+}
+header > h1{
+	text-align: center;
+	 padding: 10px; 
+	 margin: 50px; 
+	 background:#5cbafd
+	}
+header > h1 > a {
+	
+	text-decoration: none;
+	color: #ffffff;
+}
 /* 테이블 */
-table{margin:40px; width: 90%; height: 45%;  border-collapse: separate;  border-spacing: 0;   overflow: hidden;}
-tr,th,td {text-align: center; padding: 30px;border: 1px solid #00000023;}
-table > thead {background-color: #5cbafd; }	
-tr > td { background-color: #d8e9f5; border-bottom: 1px solid rgba(0, 0, 0, 0.144);}
+table{
+	margin:0 auto; 
+	width: 88%; 
+	height: 45%;  
+	border-collapse: separate;  
+	border-spacing: 0;   
+	overflow: hidden;
+}
+tr,th,td {
+	text-align: center; 
+	padding: 10px;
+	border: 1px solid #00000023; 
+	color: #434343;
+}
+table > thead {
+	background-color: #82cbff;
+	
+}
+th{
+	color: white;
+}
+tr > td {
+	background-color: rgba(178, 224, 255,0.7); 
+	border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+}
 
 /* 버튼 */
-button{background-color:#5cbafd;border-radius: 8px; width:100px; height:50px; border:none; color:#ffffff; margin: 45px; font-size: 18px;}
+button{
+	background-color:#3eaeff; 
+	float: right;
+	width:110px; 
+	height:50px; 
+	border:none; 
+	color:#ffffff; 
+	margin-top: 5px; 
+	margin-right: 115px; 
+	font-size: 35px;
+}

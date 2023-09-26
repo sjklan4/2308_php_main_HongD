@@ -1,3 +1,9 @@
+<?php
+define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board2/src/");
+define("FILE_HEADER",ROOT."header2.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,21 +12,19 @@
 	<link rel="stylesheet" href="./css/boards.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+	
 	<title>리스트페이지</title>
 </head>
 <body>
-	
-		<header>
-			<h1>Mini Board</h1>
-		</header>
-		
-		<button type="button"  id="form_btn" >Write</button>
-	
+	<?
+		require_once(FILE_HEADER);
+	?>
+			
 		<table>
 			<colgroup>
 			<col width="10%">
-			<col width="50%">
+			<col width="20%">
 			<col width="10%">
 			</colgroup>
 			<thead>
@@ -59,6 +63,7 @@
 				<td>2023-09-25</td>
 			</tr>
 		</table>
+		<button type="button"  id="form_btn" >Write</button>
 	</form>
 </body>
 </html>
