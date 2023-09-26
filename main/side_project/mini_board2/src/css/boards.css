@@ -1,11 +1,9 @@
 *{margin: 0; padding: 0;}
 body{background-color: #e6f1f8; font-size: 24px;}
 /* 헤더 */
-header {width: 1200px; height: 300px;}
-header > img{padding: 10em;}
-
+header {width: 100%;}
+header > h1{text-align: center; padding: 10px; margin: 50px;}
 /* 테이블 */
-table{width: 700px; height: 300px; margin: 50px;}
-
+table{width: 1000px; height: 300px; margin: 50px;}
 /* 버튼 */
-/* button{background-color: #0D99FF; color:#ffffff; border-radius: 3px;} */
+button{border: none;padding: 30px;}
