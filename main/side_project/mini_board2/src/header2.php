@@ -18,5 +18,5 @@
 </body>
 </html>
 <header>
-		<h1><a href="/mini_board2/src/list.html"> Mini Board</a> </h1>
+		<h1><a href="/mini_board2/src/list.php"> Mini Board</a> </h1>
 </header>

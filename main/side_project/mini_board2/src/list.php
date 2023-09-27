@@ -1,6 +1,10 @@
 <?php
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board2/src/");
 define("FILE_HEADER",ROOT."header2.php");
+require_once(ROOT."db.php"); 
+
+
+
 ?>
 
 
@@ -32,12 +36,17 @@ define("FILE_HEADER",ROOT."header2.php");
 				<th>Title</th>
 				<th>Date</th>
 			</thead>
+			<?php
+			foreach($result as $item){
+			?>
 			<tr>
-				<td>1</td>
-				<td>1111111111</td>
-				<td>2023-09-25</td>
+				<td><?php echo $item["id"]?></td>
+				<td><?php echo $item["title"]?></td>
+				<td><?php echo $item["create_at"]?></td>
 			</tr>
-			<tr>
+
+			<?php  } ?>
+			<!-- <tr>
 				<td>2</td>
 				<td>22222222222</td>
 				<td>2023-09-25</td>
@@ -61,9 +70,15 @@ define("FILE_HEADER",ROOT."header2.php");
 				<td>6</td>
 				<td>6666666666</td>
 				<td>2023-09-25</td>
-			</tr>
+			</tr> -->
+
 		</table>
-		<button type="button"  id="form_btn" >Write</button>
+		<button type="button"  id="form_btn" ><a href="/mini_board/src/insert2.php">Write</a></button>
 	</form>
+	<section>
+		<a href="/mini_board2/src/list.php/?page=">이전</a>
+		<a href="/mini_board2/src/list.php/?page="></a>
+		<a href="/mini_board2/src/list.php/?page=">다음</a>
+	</section>
 </body>
 </html>
