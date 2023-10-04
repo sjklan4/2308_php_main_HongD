@@ -1,5 +1,5 @@
 <?php
-define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/miniboard/");
+define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/miniboard/src/");
 define("ERROR_MSG_PARAM","Parameter Error :%s");
 require_once(ROOT."db.php"); //함수가 정의된 파일 불러오기
 
@@ -10,7 +10,7 @@ $arr_err_msg = [];
 
 if($http_method === "POST") {
 	try {
-			$id = isset($_POST["b_id"]) ? $_POST["b_id"] : "";
+			$bid = isset($_POST["b_id"]) ? $_POST["b_id"] : "";
 			$pw = isset($_POST["b_pw"]) ? $_POST["b_pw"] : "";
 			$title = isset($_POST["b_title"]) ? $_POST["b_title"] : ""; //제목
 			$content = isset($_POST["b_content"]) ? $_POST["b_content"] : ""; //컨텐트
@@ -33,7 +33,8 @@ if($http_method === "POST") {
 			$conn->beginTransaction();
 
 			$arr_param = [
-				"b_id" => $_POST["b_id"]
+				"id" => $_POST["id"]
+				,"b_id" => $_POST["b_id"]
 				,"b_pw" => $_POST["b_pw"]
 				,"b_title" => $_POST["b_title"]
 				,"b_content" => $_POST["b_content"]

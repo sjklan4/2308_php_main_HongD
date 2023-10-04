@@ -28,7 +28,7 @@ function my_db_conn( &$conn ){
 
 //----------------------------------- db count 함수-------------------------------
 function db_select_boards_cnt(&$conn) {
-	$sql = " SELECT COUNT(b_no) AS cnt FROM miniboard WHERE delete_flg = '0' ";
+	$sql = " SELECT COUNT(id) AS cnt FROM miniboard WHERE delete_flg = '0' ";
 	try{
 	$stmt = $conn->query($sql);
 	$result = $stmt->fetchAll();
@@ -47,7 +47,7 @@ function db_select_boards_paging(&$conn,&$arr_param){
 	try {
 		$sql = 
 		" SELECT "
-		." b_no "
+		." id "
 		." ,b_title "
 		." ,b_date "
 		." ,b_content"
@@ -58,7 +58,7 @@ function db_select_boards_paging(&$conn,&$arr_param){
 		." WHERE "
 		." delete_flg = '0' "
 		." ORDER BY "
-		." b_no DESC "
+		." id DESC "
 		." LIMIT :list_cnt OFFSET :offset "
 		;
 
@@ -108,3 +108,59 @@ function db_destroy_conn(&$conn) {
 }
 
 //----------------------------------------------------------------------------------
+
+//------------------------------레코드 작성--------------------------------------------
+function db_select_boards_id(&$conn,&$arr_param){
+	$sql = 
+	" SELECT "
+	." id "
+	." ,b_title "
+	." ,b_content "
+	." ,b_id "
+	." ,b_date"
+	." FROM "
+	." miniboard "
+	." WHERE "
+	." id = :id "
+	." AND "
+	." delete_flg = '0' "
+	;
+	
+	$arr_ps = [
+		":id" => $arr_param["id"]
+	];
+
+	try {
+		$stmt = $conn->prepare($sql);
+		$stmt->execute($arr_ps);
+		$result = $stmt->fetchAll();
+		return $result;
+	} catch (Exception $e) {
+		echo $e->getMessage();
+		return false;
+	}
+}
+//----------------------------------------------------------------------------------
+
+//---------------------------------레코드 수정----------------------------------------
+function db_update_boards_id(&$conn, &$arr_param) {
+    $sql =
+        "UPDATE miniboard SET b_title = :b_title, b_content = :b_content, b_id = :b_id WHERE id = :id AND delete_flg = '0'";
+
+    $arr_ps = [
+        ":b_title" => $arr_param["b_title"],
+        ":b_content" => $arr_param["b_content"],
+        ":b_id" => $arr_param["b_id"],
+        ":id" => $arr_param["id"]
+    ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($arr_ps);
+        return $result;
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+?>
