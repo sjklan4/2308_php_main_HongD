@@ -1,5 +1,5 @@
 <?php
-require_once("./dbconnect.php");
+require_once("dbconnect.php");
 
 //페이징처리
 if(isset($_GET["page"])){
@@ -103,7 +103,7 @@ $result = $db->query($sql);
 <body>
 	<article class="boardsArticle"> 
 		<div id="list">
-			<h3> 반응형 게시판 </h3>
+			<h3> 게시판 </h3>
 			<table>
 				<caption class=""></caption>
 				<thead>

@@ -1,5 +1,5 @@
 <?php
-require_once("./dbconnect.php");
+require_once("dbconnect.php");
 //$_GET["no]이 있을 때만 $no 변수를 사용할 수 있도록 함
 
 // ------------------------ 수정을 위한 처리 과정 --------------------------------

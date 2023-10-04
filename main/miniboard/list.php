@@ -128,11 +128,9 @@ $result = db_select_boards_paging($conn,$arr_param);
                 <a href="list.php?page=<?php echo $next_page_num ?>">다음</a>
             </section>
             <div class="write-btn">
-                <a href="">글쓰기</a>
+                <a href="insert.php">글쓰기</a>
             </div>
-            <div>
-                <a href="">페이지 번호</a>
-            </div>
+
     </div>
 </article>
 </body>

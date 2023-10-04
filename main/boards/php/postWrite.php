@@ -1,5 +1,5 @@
 <?php
-require_once("./dbconnect.php");
+require_once("dbconnect.php");
 
 //no값이 post방식으로 넘어옴 
 // 값이 있으면 $no 생성
