@@ -1,0 +1,80 @@
+a{ text-decoration: none;}
+
+.boardsArticle table {
+	width: 720px;
+	border-collapse: collapse;
+	
+}
+/* 글목록 */
+#list th {
+	padding: 5px 0;
+	border: 1px solid #777;
+	border-top: 2px solid #777;
+}
+#list td {padding: 8px 0;border: 1px solid #777;}
+
+#list .no {width: 60px; text-align: center;}
+
+#list .author {width: 100px; text-align: center;}
+#list .date {width: 100px; text-align: center;}
+#list .hit {width: 40px;text-align: center;}
+#list .btnSet{text-align: right;}
+
+/* 페이징 처리 된 리스트 */
+#list .paging{width:720px; text-align: center;}
+#list .paging li{	
+	display: inline-block;
+	height: 20px;
+	margin: 0 5px;
+	padding: 3px;
+	border: 1px solid #000000;
+	background: #b3b3b3;
+	line-height: 21px;
+}
+#list .paging li a {color:#000000;}
+#list .paging li.currentPage,li:hover{background: #636363;}
+#list .paging li.currentPage,li:hover a{color: #ffffff;}
+
+/* 글쓰기 */
+#write table {width: 720px;}
+#write th {width: 100px; padding: 5px; text-align: center; vertical-align: top;}
+#write td {width: 620px; padding: 5px;}
+
+#write #ID {width: 180px;}
+#write #password {width: 180px;}
+#write #subject{width: 400px;}
+#write #content{width: 500px; height: 200px;}
+
+#write .btnSet{width: 720px; text-align: center;}
+
+
+
+/* 글보기 */
+#boardView #bSubject {
+	width: 720px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	background-color: mediumaquamarine;
+	line-height: 30px;
+	padding: 5px 10px;
+}
+
+#boardView #bInfo {
+	position: relative;
+	width: 720px;
+	margin: 10px 0;
+	border: 1px solid #666;
+	padding: 10px 10px;
+}
+
+#bInfo #ID, #bDate {margin-right: 20px;}
+#bInfo #bHit {position: absolute; right: 0; padding-right: 20px;}
+#boardView #bContent {margin: 30px 0; padding: 20px; }  
+.btnSet{width:720px; text-align: center;}
+
+
+/* 삭제 영역 */
+#boardDelete table {width: 720px; border: 1px solid #666; margin-bottom: 10px;}
+#boardDelete tbody th {width: 100px; padding: 5px; text-align: right; vertical-align: top;}
+#boardDelete .btnSet {width: 720px; text-align: center;}
