@@ -3,8 +3,8 @@ body{ margin: 0; padding: 0;background-size: cover; }
 a{ text-decoration: none; }
 a:hover{transform: all 0.5s;}
 .btn_set {
-	background-color:#7a7a7a;
-	color:#9b9a9a;
+	background-color:#c3c6c7b0;
+	color : #909090;
 	border: 0;
 	outline: 0;
 	font-weight: bold;
@@ -14,9 +14,8 @@ a:hover{transform: all 0.5s;}
 	border-radius: 10px;
 }
 .btn_set:hover {
-	background-color: #d3d3d3;
-	color:#c7c7c7;
-	
+	background-color: #909090;
+	color: #c3c6c7b0;
 }
 /* 헤더영역 */
 header {
@@ -70,16 +69,18 @@ main > a:hover {
 }
 
 .up_btn_a {
-	background-color:#e9e9e9;
-	color: #ffffff;
+	background-color:#c3c6c7b0;
+	color: #909090;
 	display: inline-block;
 	border-radius: 12px;
 	font-size: 18px;
-	padding: 13px;
+	font-weight: bold;
+	padding: 20px;
 }
 
 .up_btn_a:hover {
-	background-color: #999999;
+	background-color: #909090;
+	color: #c3c6c7b0;
 }
 /* 테이블 */
 table {
@@ -179,18 +180,28 @@ label {
 
 /* detail 영역 */
 .detail_a{
-	text-align: center;	
+	text-align: center;
+	
 }
+
 .detail_a > a{
-	color: #757575;
-	display: inline-block;
-	/* padding: 30px;		 */
+	color: #909090;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #c3c6c7b0;
+	border-radius: 10px;
+	padding: 13px;
 }
+
 .detail_a > a:hover{
-	color: #3a3939;
+	background-color: #909090;
+	color:  #c3c6c7b0;
 }
 .del_btn{
 	color: #757575;
 	font-size: 18px;
 }
 
+.btn_cancel {
+	padding: 1px 6px;
+}
