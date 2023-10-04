@@ -2,6 +2,9 @@
 body{ margin: 0; padding: 0;background-size: cover; }
 a{ text-decoration: none; }
 a:hover{transform: all 0.5s;}
+button {
+	background-color: #6a6464;
+}
 /* 헤더영역 */
 header {
 	background-size: cover;
@@ -161,3 +164,8 @@ label {
 .detail_a > a:hover{
 	color: #3a3939;
 }
+.del_btn{
+	color: #757575;
+	font-size: 18px;
+}
+
