@@ -94,9 +94,9 @@ try {
 
 		</table>
 		<div class ="detail_a">
-			<button type="submit">수정확인</button>
+			<button class="btn_set" type="submit">수정확인</button>
 			
-			<a href="/mini_board/src/detail.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">수정취소</a>
+			<a class="up_btn_a"href="/mini_board/src/detail.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">수정취소</a>
 		</div>
 	</form>
 

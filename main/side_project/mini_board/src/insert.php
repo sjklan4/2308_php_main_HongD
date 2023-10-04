@@ -62,7 +62,7 @@
 		
 		<textarea name="content" id="content" cols="40" rows="10"></textarea>
 		<br>
-		<button type="submit" class ="btn_gray">작성</button>
+		<button class="btn_set"type="submit" class ="btn_gray">작성</button>
 		<a href="/mini_board/src/list.php" class ="btn_cancle"> 취소 </a>
 		
 	</form>
