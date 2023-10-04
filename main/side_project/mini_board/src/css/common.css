@@ -2,6 +2,7 @@
 body{ margin: 0; padding: 0;background-size: cover; }
 a{ text-decoration: none; }
 a:hover{transform: all 0.5s;}
+/* 버튼영역 */
 .btn_set {
 	background-color:#c3c6c7b0;
 	color : #909090;
@@ -17,34 +18,6 @@ a:hover{transform: all 0.5s;}
 	background-color: #909090;
 	color: #c3c6c7b0;
 }
-/* 헤더영역 */
-header {
-	background-size: cover;
-	width: 100%;
-	padding: 2rem;
-}
-header > h1 {
-	text-align: center;
-	font-size: 4rem;
-}
-header > h1 > a{
-	color: #6a6464;
-}
-header > h1 > a:hover{
-	color: #8b8b8b;
-}
-/* 메인영역 */
-main > a {
-	font-size: 18px;
-	color:#6a6464;
-	line-height: 50px;
-	margin: 80px;
-}
-main > a:hover {
-	color:#737070;
-}
-
-/*  버튼 설정 */
 .btn_wrap{
 	font-size: 18px;
 	display: block;
@@ -82,6 +55,35 @@ main > a:hover {
 	background-color: #909090;
 	color: #c3c6c7b0;
 }
+/* 헤더영역 */
+header {
+	background-size: cover;
+	width: 100%;
+	padding: 2rem;
+}
+header > h1 {
+	text-align: center;
+	font-size: 4rem;
+}
+header > h1 > a{
+	color: #6a6464;
+}
+header > h1 > a:hover{
+	color: #8b8b8b;
+}
+/* 메인영역 */
+main > a {
+	font-size: 18px;
+	color:#6a6464;
+	line-height: 50px;
+	margin: 80px;
+}
+main > a:hover {
+	color:#737070;
+}
+
+
+
 /* 테이블 */
 table {
 	border-collapse : collapse;
