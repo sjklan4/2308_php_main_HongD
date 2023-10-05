@@ -1,5 +1,5 @@
 <?php
-define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/miniboard/src/");
+define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/miniboard/src/");
 define("ERROR_MSG_PARAM","Parameter Error :%s");
 require_once(ROOT."db.php"); //함수가 정의된 파일 불러오기
 
@@ -15,6 +15,7 @@ if($http_method === "POST") {
 			$title = isset($_POST["b_title"]) ? $_POST["b_title"] : ""; //제목
 			$content = isset($_POST["b_content"]) ? $_POST["b_content"] : ""; //컨텐트
 
+		
 			if($title === ""){
 				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM,"title");
 			}

@@ -1,5 +1,5 @@
 <?php
-define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/miniboard/src/");
+define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/miniboard/src/");
 define("ERROR_MSG_PARAM","Parameter Error :%s");
 require_once(ROOT."db.php"); //함수가 정의된 파일 불러오기
 
@@ -81,9 +81,9 @@ try {
 			</tr>
 		</table>
 		<section>
-			<a href="update.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">수정</a>
-			<a href="list.php">취소</a>
-			<a href="delete.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">삭제</a>
+			<a href="/miniboard/src/update.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">수정</a>
+			<a href="/miniboard/src/list.php">취소</a>
+			<a href="/miniboard/src/delete.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">삭제</a>
 		</section>
 		
 	</main>

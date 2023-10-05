@@ -12,32 +12,67 @@ try {
         throw new Exception("DB 오류: PDO 인스턴스");
     }
 
-    $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : "";
-    $page = isset($_REQUEST["page"]) ? $_REQUEST["page"] : "";
-    $bid = isset($_REQUEST["b_id"]) ? $_REQUEST["b_id"] : "";
 
-    if ($id === "") {
-        $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
-    }
-    if ($page === "") {
-        $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
-    }
-    if ($bid === "") {
-        $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_id");
-    }
+    if($http_method === "GET"){
+        $id = isset($_GET["id"]) ? $_GET["id"] : "";
+        $page = isset($_GET["page"]) ? $_GET["page"] : "";
+        // $title = isset($_GET["b_title"]) ? $_GET["b_title"] : "";
+        // $content = isset($_GET["b_content"]) ? $_GET["b_content"] : "";
+        // $bid = isset($_GET["b_id"]) ? $_GET["b_id"] : "";
 
-    if (count($arr_err_msg) >= 1) {
-        throw new Exception(implode("<br>", $arr_err_msg));
+        if ($id === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+        }
+        if ($page === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+        }
+    
+
+        if (count($arr_err_msg) >= 1) {
+            throw new Exception(implode("<br>", $arr_err_msg));
+         }
+
+        $arr_param = [
+            "id" => $id,
+        ];
+
+        $result = db_select_boards_id($conn, $arr_param);
+
+  
+
+        if($result === false) {
+            throw new Exception("DB Error : PDO SELECT_id");
+        } else if(!(count($result) === 1)) {
+            throw new Exception("DB Error : PDO Select_id Count,".count($result));
+        }
+        $item = $result[0];
+    } else {
+        $id = isset($_POST["id"]) ? $_POST["id"] : "";
+        $page = isset($_POST["page"]) ? $_POST["page"] : "";
+        $title = isset($_POST["b_title"]) ? $_POST["b_title"] : "";
+        $content = isset($_POST["b_content"]) ? $_POST["b_content"] : "";
+        $bid = isset($_POST["b_id"]) ? $_POST["b_id"] : "";
     }
+        if($id === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+        }
+        if($page === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+        }
+        if($title === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_title");
+        }
+        if($content === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_content");
+        }
+        if($content === "") {
+            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_id");
+        }
+        
+        if(count($arr_err_msg) >= 1) {
+            throw new Exception(implode("<br>", $arr_err_msg));
 
-    $arr_param = [
-        "id" => $id,
-        "b_title" => $_POST["b_title"],
-        "b_content" => $_POST["b_content"],
-        "b_id" => $_POST["b_id"]
-    ];
-
-    $conn->beginTransaction();
+        $conn->beginTransaction();
 
     if (!db_update_boards_id($conn, $arr_param)) {
         throw new Exception("DB 오류: Update_boards_id");
@@ -45,11 +80,11 @@ try {
 
     $conn->commit();
 
-    header("Location: update.php?id={$id}&page={$page}");
+    header("Location: detail.php?id={$id}&page={$page}");
     exit;
-
+}
 } catch (Exception $e) {
-    if ($conn) {
+    if ($http_method === "POST") {
         $conn->rollBack(); // 에러 발생 시 롤백
     }
     echo $e->getMessage();
@@ -57,6 +92,8 @@ try {
 } finally {
     db_destroy_conn($conn);
 }
+
+
 ?>
 
 ?>
@@ -70,10 +107,10 @@ try {
 </head>
 <body>
 	<main>
-	<form action="update.php" method="post">
+	<form action="/mini_board/src/update.php" method="post">
 			<table>
-			<input type="hidden" name="id" value="<?php echo $id;?>">
-			<input type="hidden" name="page" value="<?php echo $page;?>">
+			<input type="hidden" name="id" id="id" value="<?php echo $id;?>">
+			<input type="hidden" name="page" id="page" value="<?php echo $page;?>">
 			
 				<tr>
 					<th>번호</th>
@@ -87,7 +124,7 @@ try {
 					<th>제목</th>
 					<td>
 					
-						<input type="text" name="b_title"value="<?php echo $item["b_title"];?>">
+						<input type="text" name="b_title" id="b_title" value="<?php echo $item["b_title"];?>">
 					</td>
 				</tr>
 				<tr>
@@ -96,8 +133,8 @@ try {
 				</tr>
 			</table>
 			<section>
-				<button>완료</button>
-				<a href="detail.php?id=<?php echo $item["id"];?>&page=<?php echo $page;?>">수정취소</a>
+				<button type="submit">완료</button>
+				<a href="/mini_board/src/detail.php?id=<?php echo $item["id"];?>&page=<?php echo $page;?>">수정취소</a>
 				
 			</section>
 		</form>

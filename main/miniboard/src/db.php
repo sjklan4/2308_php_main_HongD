@@ -128,7 +128,7 @@ function db_select_boards_id(&$conn,&$arr_param){
 	
 	$arr_ps = [
 		":id" => $arr_param["id"]
-	];
+		];
 
 	try {
 		$stmt = $conn->prepare($sql);
