@@ -1,5 +1,5 @@
 <?php
-define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "/miniboard/src/");
+define("ROOT", $_SERVER["DOCUMENT_ROOT"] . "miniboard/src/");
 define("ERROR_MSG_PARAM", "파라미터 오류: %s");
 require_once(ROOT . "db.php");
 
@@ -26,19 +26,62 @@ try {
         if ($page === "") {
             $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
         }
-    
-
         if (count($arr_err_msg) >= 1) {
             throw new Exception(implode("<br>", $arr_err_msg));
          }
 
-        $arr_param = [
-            "id" => $id,
+       
+        } 
+        else {
+            $id = isset($_POST["id"]) ? $_POST["id"] : "";
+            $page = isset($_POST["page"]) ? $_POST["page"] : "";
+            $title = isset($_POST["b_title"]) ? $_POST["b_title"] : "";
+            $content = isset($_POST["b_content"]) ? $_POST["b_content"] : "";
+            $bid = isset($_POST["b_id"]) ? $_POST["b_id"] : "";
+
+            if($id === "") {
+                $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+            }
+            if($page === "") {
+                $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+            }
+            if($title === "") {
+                $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_title");
+            }
+            if($content === "") {
+                $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_content");
+            }
+            if($bid === "") {
+                $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_id");
+            }
+            if(count($arr_err_msg) >= 1) {
+                throw new Exception(implode("<br>", $arr_err_msg));
+            }
+            
+            $arr_param = [
+                "id" => $id
+                ,"b_title" => $_POST["b_title"]
+                ,"b_content" => $_POST["b_content"]
+            ];
+            $conn->beginTransaction();
+        
+            if (!db_update_boards_id($conn, $arr_param)) {
+            throw new Exception("DB 오류: Update_boards_id");
+            }
+
+            $conn->commit();
+
+            header("Location: detail.php/?id={$id}&page={$page}");
+            exit;
+        }
+    }
+
+    $arr_param = [
+            "id" => $id
         ];
 
         $result = db_select_boards_id($conn, $arr_param);
 
-  
 
         if($result === false) {
             throw new Exception("DB Error : PDO SELECT_id");
@@ -46,57 +89,23 @@ try {
             throw new Exception("DB Error : PDO Select_id Count,".count($result));
         }
         $item = $result[0];
-    } else {
-        $id = isset($_POST["id"]) ? $_POST["id"] : "";
-        $page = isset($_POST["page"]) ? $_POST["page"] : "";
-        $title = isset($_POST["b_title"]) ? $_POST["b_title"] : "";
-        $content = isset($_POST["b_content"]) ? $_POST["b_content"] : "";
-        $bid = isset($_POST["b_id"]) ? $_POST["b_id"] : "";
-    }
-        if($id === "") {
-            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
-        }
-        if($page === "") {
-            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
-        }
-        if($title === "") {
-            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_title");
-        }
-        if($content === "") {
-            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_content");
-        }
-        if($content === "") {
-            $arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "b_id");
-        }
-        
-        if(count($arr_err_msg) >= 1) {
-            throw new Exception(implode("<br>", $arr_err_msg));
 
-        $conn->beginTransaction();
 
-    if (!db_update_boards_id($conn, $arr_param)) {
-        throw new Exception("DB 오류: Update_boards_id");
-    }
-
-    $conn->commit();
-
-    header("Location: detail.php?id={$id}&page={$page}");
-    exit;
-}
 } catch (Exception $e) {
     if ($http_method === "POST") {
         $conn->rollBack(); // 에러 발생 시 롤백
     }
     echo $e->getMessage();
     exit;
-} finally {
-    db_destroy_conn($conn);
-}
+} 
+    finally {
+        db_destroy_conn($conn);
+    }
 
 
 ?>
 
-?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -107,7 +116,7 @@ try {
 </head>
 <body>
 	<main>
-	<form action="/mini_board/src/update.php" method="post">
+	<form action="/miniboard/src/update.php" method="post">
 			<table>
 			<input type="hidden" name="id" id="id" value="<?php echo $id;?>">
 			<input type="hidden" name="page" id="page" value="<?php echo $page;?>">
@@ -134,10 +143,12 @@ try {
 			</table>
 			<section>
 				<button type="submit">완료</button>
-				<a href="/mini_board/src/detail.php?id=<?php echo $item["id"];?>&page=<?php echo $page;?>">수정취소</a>
+                <a href="/miniboard/src/detail.php/?id=<?php echo $id;?>&page=<?php echo $page;?>">수정취소</a>
 				
 			</section>
 		</form>
+
+        
 	</main>
 </body>
 </html>
